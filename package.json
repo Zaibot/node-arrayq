@@ -1,0 +1,30 @@
+{
+  "name": "arrayq",
+  "version": "0.1.0",
+  "description": "Array query methods for Node.js",
+  "main": "src/index.ts",
+  "scripts": {
+    "prepublish": "npm run build && npm run test",
+    "build": "npm run clean && npm run compile",
+    "clean": "rimraf ./es6/*",
+    "compile": "npm run compile:ts",
+    "compile:ts": "tsc --declaration --outDir es6 ./src/index.ts ./src/prototype.ts",
+    "test": "mocha ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zaibot/node-arrayq.git"
+  },
+  "keywords": [],
+  "author": "T. de Groen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zaibot/node-arrayq/issues"
+  },
+  "homepage": "https://github.com/Zaibot/node-arrayq#readme",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^3.2.0",
+    "typescript": "^2.1.5"
+  }
+}
