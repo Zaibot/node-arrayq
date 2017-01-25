@@ -91,3 +91,22 @@ describe('qIntersect', function() {
     assert.deepEqual([1,2,3].qIntersect([2,2,3,3,4,4]), [2,3]);
   });
 });
+
+describe('qRotate', function() {
+  it('rotate 1 backward', function() {
+    // TODO
+    assert.deepEqual([1,2,3,4].qRotate(-1), [2,3,4,1]);
+  });
+  it('rotate 1 forward', function() {
+    // TODO
+    assert.deepEqual([1,2,3,4].qRotate(1), [4,1,2,3]);
+  });
+  it('rotate 7 forward', function() {
+    // TODO
+    assert.deepEqual([1,2,3,4].qRotate(7), [2,3,4,1]);
+  });
+  it('rotate 7 backward', function() {
+    // TODO
+    assert.deepEqual([1,2,3,4].qRotate(-7), [4,1,2,3]);
+  });
+});

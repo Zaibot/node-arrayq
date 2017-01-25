@@ -9,7 +9,8 @@
     "clean": "rimraf ./es6/*",
     "compile": "npm run compile:ts",
     "compile:ts": "tsc --declaration --outDir es6 ./src/index.ts ./src/prototype.ts",
-    "test": "mocha ./test"
+    "test": "mocha ./test",
+    "watch": "nodemon -i ./es6/ -w ./ --exec \"npm run compile && npm run test\""
   },
   "repository": {
     "type": "git",

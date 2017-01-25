@@ -5,4 +5,5 @@ interface Array<T> {
   qEmpty(): boolean;
   qFirst(predicate?: (l: T) => boolean): T;
   qLast(predicate?: (l: T) => boolean): T;
+  qRotate(offset: number): T[];
 }

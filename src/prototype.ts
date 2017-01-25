@@ -32,3 +32,8 @@ if (!Array.prototype.qLast) {
         return lib.last(this, predicate);
     };
 }
+if (!Array.prototype.qRotate) {
+    Array.prototype.qRotate = function(offset) {
+        return lib.rotate(this, offset);
+    };
+}
