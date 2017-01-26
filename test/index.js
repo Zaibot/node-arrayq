@@ -138,3 +138,28 @@ describe('qRotate', function() {
     assert.deepEqual([1,2,3,4].qRotate(-7), [4,1,2,3]);
   });
 });
+
+describe('qDistinct', function() {
+  it('should remain empty', function() {
+    assert.deepEqual([].qDistinct(), []);
+  });
+  it('should have a single 4 left', function() {
+    assert.deepEqual([4,4,4,4].qDistinct(), [4]);
+  });
+  it('should have a 1, 2, 3 and 4 left', function() {
+    assert.deepEqual([1,2,2,3,4,4].qDistinct(), [1, 2, 3, 4]);
+  });
+  it('should have a 1a and 2d left', function() {
+    assert.deepEqual([
+      { key: '1', value: 'a' },
+      { key: '1', value: 'b' },
+      { key: '1', value: 'c' },
+      { key: '2', value: 'd' },
+      { key: '2', value: 'e' },
+      { key: '2', value: 'f' }
+    ].qDistinct(item => item.key), [
+      { key: '1', value: 'a' },
+      { key: '2', value: 'd' }
+    ]);
+  });
+});

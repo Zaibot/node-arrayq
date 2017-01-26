@@ -42,3 +42,8 @@ if (!Array.prototype.qMapMany) {
         return lib.mapMany(this, selector);
     };
 }
+if (!Array.prototype.qDistinct) {
+    Array.prototype.qDistinct = function(key?) {
+        return lib.distinct(this, key);
+    };
+}

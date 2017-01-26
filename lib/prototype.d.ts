@@ -7,4 +7,5 @@ interface Array<T> {
   qLast(predicate?: (l: T) => boolean): T;
   qRotate(offset: number): T[];
   qMapMany<TR>(selector?: (l: T) => TR[]): TR[];
+  qDistinct(key?: (l: T) => any): T[];
 }
