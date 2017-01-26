@@ -1,4 +1,4 @@
-export function intersect<TL, TR>(l: TL[], r: TR[], predicate?: (l: TL, r: TR) => boolean): TL[] {
+export default function intersect<TL, TR>(l: TL[], r: TR[], predicate?: (l: TL, r: TR) => boolean): TL[] {
   var i, ii, j, jj;
   l = l.slice(0);
   r = r.slice(0);

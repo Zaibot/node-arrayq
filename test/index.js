@@ -2,6 +2,18 @@ const assert = require('assert');
 
 require('../es6/prototype');
 
+describe('es6', function() {
+  it('require', function() {
+    const { same } = require('../es6');
+    assert(same([1,2,3], [1,2,3]));
+  });
+
+  it('cherry pick', function() {
+    const same = require('../es6/same').default;
+    assert(same([1,2,3], [1,2,3]));
+  });
+});
+
 describe('qSame', function() {
   it('should return true if items and order are the same', function() {
     assert([1, 2, 3].qSame([1, 2, 3]));

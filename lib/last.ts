@@ -1,4 +1,4 @@
-export function last<TL>(l: TL[], predicate?: (l: TL) => boolean): TL {
+export default function last<TL>(l: TL[], predicate?: (l: TL) => boolean): TL {
   var i = l.length;
   if (predicate) {
     while (i--) {

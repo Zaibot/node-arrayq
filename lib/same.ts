@@ -1,4 +1,4 @@
-export function same<TL, TR>(l: TL[], r: TR[], predicate?: (l: TL, r: TR) => boolean): boolean {
+export default function same<TL, TR>(l: TL[], r: TR[], predicate?: (l: TL, r: TR) => boolean): boolean {
   var i, ii, j, jj;
 
   if (l.length !== r.length) return false;

@@ -1,4 +1,4 @@
-export function contains<TL, TR>(l: TL[], r: TR[], predicate?: (l: TL, r: TR) => boolean): boolean {
+export default function contains<TL, TR>(l: TL[], r: TR[], predicate?: (l: TL, r: TR) => boolean): boolean {
   var found, i, ii, j, jj;
   if (predicate) {
     for (i = 0, ii = r.length; i < ii; i++) {

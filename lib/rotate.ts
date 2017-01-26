@@ -1,4 +1,4 @@
-export function rotate<TL>(l: TL[], offset: number): TL[] {
+export default function rotate<TL>(l: TL[], offset: number): TL[] {
   const end = l.length;
   if (offset === 0 || end === 0) return l.slice(0);
   var start = end - offset;

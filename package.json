@@ -2,13 +2,13 @@
   "name": "arrayq",
   "version": "0.1.0",
   "description": "Array query methods for Node.js",
-  "main": "src/index.ts",
+  "main": "lib/prototype.ts",
   "scripts": {
     "prepublish": "npm run build && npm run test",
     "build": "npm run clean && npm run compile",
     "clean": "rimraf ./es6/*",
     "compile": "npm run compile:ts",
-    "compile:ts": "tsc --declaration --outDir es6 ./src/index.ts ./src/prototype.ts",
+    "compile:ts": "tsc",
     "test": "mocha ./test",
     "watch": "nodemon -i ./es6/ -w ./ --exec \"npm run compile && npm run test\""
   },
