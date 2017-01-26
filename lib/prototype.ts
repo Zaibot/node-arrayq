@@ -37,3 +37,8 @@ if (!Array.prototype.qRotate) {
         return lib.rotate(this, offset);
     };
 }
+if (!Array.prototype.qMapMany) {
+    Array.prototype.qMapMany = function(selector?) {
+        return lib.mapMany(this, selector);
+    };
+}

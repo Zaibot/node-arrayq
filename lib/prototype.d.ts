@@ -6,4 +6,5 @@ interface Array<T> {
   qFirst(predicate?: (l: T) => boolean): T;
   qLast(predicate?: (l: T) => boolean): T;
   qRotate(offset: number): T[];
+  qMapMany<TR>(selector?: (l: T) => TR[]): TR[];
 }

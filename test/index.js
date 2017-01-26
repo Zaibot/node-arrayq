@@ -104,6 +104,22 @@ describe('qIntersect', function() {
   });
 });
 
+describe('qMapMany', function() {
+  it('should flatten arrays', function() {
+    assert.deepEqual([[1, 2], [3, 4]].qMapMany(), [1, 2, 3, 4]);
+  });
+  it('should return all items under property x', function() {
+    assert.deepEqual([
+      { x: [1, 2] },
+      { x: [3, 4, 5] },
+      { x: [6, 7] },
+      { x: [8] }
+    ].qMapMany(item => item.x), [
+      1, 2, 3, 4, 5, 6, 7, 8
+    ]);
+  });
+});
+
 describe('qRotate', function() {
   it('rotate 1 backward', function() {
     // TODO

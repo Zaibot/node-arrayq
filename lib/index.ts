@@ -5,3 +5,4 @@ export { default as empty } from './empty';
 export { default as first } from './first';
 export { default as last } from './last';
 export { default as rotate } from './rotate';
+export { default as mapMany } from './mapMany';
