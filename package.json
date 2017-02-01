@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "description": "Array query methods for Node.js",
   "main": "lib/prototype.ts",
+  "typings": "es6/prototype.d.ts",
   "scripts": {
     "prepublish": "npm run build && npm run test",
     "build": "npm run clean && npm run compile",
