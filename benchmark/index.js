@@ -1,4 +1,4 @@
-['jslength','jssome','jsmap','qselectmany','jsevery-pes','jsevery-op'].forEach(suite => {
+['jslength','jsmap','qselectmany','jssome-pes','jssome-op','jsevery-pes','jsevery-op'].forEach(suite => {
   console.log(`[${suite}]`);
   require(`./${suite}`)()
     .on('cycle', (event) => console.log(String(event.target)))

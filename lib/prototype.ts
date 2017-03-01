@@ -4,6 +4,7 @@ import { ItemPredicate, LeftRightPredicate, Projector, ProjectMany } from './typ
 
 declare global {
   interface Array<T> {
+    qAny(predicate?: (items: T) => boolean): boolean;
     qAll(predicate: (items: T) => boolean): boolean;
     qContains<TR>(r: TR[], predicate?: LeftRightPredicate<T, TR>): boolean;
     qIntersect<TR>(r: TR[], predicate?: LeftRightPredicate<T, TR>): T[];
@@ -67,6 +68,11 @@ if (!Array.prototype.qDistinct) {
 if (!Array.prototype.qSelect) {
     Array.prototype.qSelect = function(predicate) {
         return lib.select(this, predicate);
+    };
+}
+if (!Array.prototype.qAny) {
+    Array.prototype.qAny = function(predicate?) {
+        return lib.any(this, predicate);
     };
 }
 if (!Array.prototype.qAll) {

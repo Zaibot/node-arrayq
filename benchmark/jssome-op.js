@@ -4,5 +4,5 @@ const data = require('./data.json');
 
 module.exports = () =>
   new Suite()
-    .add('some', () => data.some(x => x.season === 5))
-    .add('qFirst', () => data.qFirst(x => x.season === 5));
+    .add('some', () => data.some(x => x.season === 1))
+    .add('qAny', () => data.qAny(x => x.season === 1));

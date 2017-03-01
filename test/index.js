@@ -180,6 +180,15 @@ describe('qAll', function() {
   });
 });
 
+describe('qAny', function() {
+  it('should return true', function() {
+    assert([1, 2, 3, 4].qAny(x => x === 1));
+  });
+  it('should return false', function() {
+    assert(![1, 2, 3, 4].qAny(x => x === 0));
+  });
+});
+
 describe('qWhere', function() {
   it('should have even numbers', function() {
     assert.deepEqual([1,2,3,4,5,6,7,8,9,10].qWhere(x => x%2 === 0), [2,4,6,8,10]);
