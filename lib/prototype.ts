@@ -12,6 +12,7 @@ declare global {
     qLast(predicate?: (l: T) => boolean): T;
     qRotate(offset: number): T[];
     qMapMany<TR>(selector?: ProjectMany<T, TR>): TR[];
+    qSelect<TOut>(selector: (item: T) => TOut): TOut[];
     qDistinct(key?: (l: T) => any): T[];
     qWhere(predicate: ItemPredicate<T>): T[];
   }
@@ -60,6 +61,11 @@ if (!Array.prototype.qMapMany) {
 if (!Array.prototype.qDistinct) {
     Array.prototype.qDistinct = function(key?) {
         return lib.distinct(this, key);
+    };
+}
+if (!Array.prototype.qSelect) {
+    Array.prototype.qSelect = function(predicate) {
+        return lib.select(this, predicate);
     };
 }
 if (!Array.prototype.qWhere) {

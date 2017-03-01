@@ -139,6 +139,13 @@ describe('qRotate', function() {
   });
 });
 
+describe('qSelect', function() {
+  it('return list with values of property a', function() {
+    // TODO
+    assert.deepEqual([{a:1},{a:2},{a:3},{a:4}].qSelect(x => x.a), [1,2,3,4]);
+  });
+});
+
 describe('qDistinct', function() {
   it('should remain empty', function() {
     assert.deepEqual([].qDistinct(), []);

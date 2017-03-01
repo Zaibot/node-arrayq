@@ -7,4 +7,5 @@ export { default as last } from './last';
 export { default as rotate } from './rotate';
 export { default as mapMany } from './mapMany';
 export { default as distinct } from './distinct';
+export { default as select } from './select';
 export { default as where } from './where';
