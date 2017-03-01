@@ -8,4 +8,5 @@ export { default as rotate } from './rotate';
 export { default as mapMany } from './mapMany';
 export { default as distinct } from './distinct';
 export { default as select } from './select';
+export { default as all } from './all';
 export { default as where } from './where';
