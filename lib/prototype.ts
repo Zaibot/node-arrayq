@@ -4,31 +4,31 @@ import { ItemPredicate, LeftRightPredicate, Projector, ProjectMany } from './typ
 
 declare global {
   interface Array<T> {
-    qContains<TR>(r: TR[], predicate?: (l: T, r: TR) => boolean): boolean;
-    qIntersect<TR>(r: TR[], predicate?: (l: T, r: TR) => boolean): T[];
-    qSame<TR>(r: TR[], predicate?: (l: T, r: TR) => boolean): boolean;
+    qContains<TR>(r: TR[], predicate?: LeftRightPredicate<T, TR>): boolean;
+    qIntersect<TR>(r: TR[], predicate?: LeftRightPredicate<T, TR>): T[];
+    qSame<TR>(r: TR[], predicate?: LeftRightPredicate<T, TR>): boolean;
     qEmpty(): boolean;
     qFirst(predicate?: (l: T) => boolean): T;
     qLast(predicate?: (l: T) => boolean): T;
     qRotate(offset: number): T[];
-    qMapMany<TR>(selector?: (l: T) => TR[]): TR[];
+    qMapMany<TR>(selector?: ProjectMany<T, TR>): TR[];
     qDistinct(key?: (l: T) => any): T[];
     qWhere(predicate: ItemPredicate<T>): T[];
   }
 }
 
 if (!Array.prototype.qContains) {
-    Array.prototype.qContains = function(r, predicate?) {
+    Array.prototype.qContains = function<T, TR>(r: TR[], predicate?: LeftRightPredicate<T, TR>) {
         return lib.contains(this, r, predicate);
     };
 }
 if (!Array.prototype.qIntersect) {
-    Array.prototype.qIntersect = function(r, predicate?) {
+    Array.prototype.qIntersect = function<T, TR>(r: TR[], predicate?: LeftRightPredicate<T, TR>) {
         return lib.intersect(this, r, predicate);
     };
 }
 if (!Array.prototype.qSame) {
-    Array.prototype.qSame = function(r, predicate?) {
+    Array.prototype.qSame = function<T, TR>(r: TR[], predicate?: LeftRightPredicate<T, TR>) {
         return lib.same(this, r, predicate);
     };
 }
@@ -53,7 +53,7 @@ if (!Array.prototype.qRotate) {
     };
 }
 if (!Array.prototype.qMapMany) {
-    Array.prototype.qMapMany = function(selector?) {
+    Array.prototype.qMapMany = function<T, TOut>(selector?: ProjectMany<T, TOut>) {
         return lib.mapMany(this, selector);
     };
 }
