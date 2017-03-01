@@ -1,5 +1,7 @@
 import * as lib from './index';
 
+import { ItemPredicate, LeftRightPredicate, Projector, ProjectMany } from './types';
+
 declare global {
   interface Array<T> {
     qContains<TR>(r: TR[], predicate?: (l: T, r: TR) => boolean): boolean;
@@ -11,6 +13,7 @@ declare global {
     qRotate(offset: number): T[];
     qMapMany<TR>(selector?: (l: T) => TR[]): TR[];
     qDistinct(key?: (l: T) => any): T[];
+    qWhere(predicate: ItemPredicate<T>): T[];
   }
 }
 
@@ -57,5 +60,10 @@ if (!Array.prototype.qMapMany) {
 if (!Array.prototype.qDistinct) {
     Array.prototype.qDistinct = function(key?) {
         return lib.distinct(this, key);
+    };
+}
+if (!Array.prototype.qWhere) {
+    Array.prototype.qWhere = function<T>(predicate: ItemPredicate<T>) {
+        return lib.where(this, predicate);
     };
 }
