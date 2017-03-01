@@ -14,7 +14,8 @@
     "preserveConstEnums": true,
     "suppressImplicitAnyIndexErrors": true,
     "sourceMap": true,
-    "outDir": "es6"
+    "outDir": "es6",
+    "alwaysStrict": true
   },
   "include": [
     "./lib/**/*"
