@@ -6,6 +6,7 @@ export { default as first } from './first';
 export { default as last } from './last';
 export { default as rotate } from './rotate';
 export { default as mapMany } from './mapMany';
+export { default as mapManyNative } from './mapManyNative';
 export { default as distinct } from './distinct';
 export { default as select } from './select';
 export { default as any } from './any';

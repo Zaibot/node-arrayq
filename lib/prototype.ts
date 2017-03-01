@@ -20,6 +20,17 @@ declare global {
   }
 }
 
+import { UAParser } from 'ua-parser-js';
+const engine: string = new UAParser().getEngine().name;
+if (engine !== undefined && !/WebKit/i.test(engine)) {
+    if (!Array.prototype.qMapMany) {
+        Array.prototype.qMapMany = function(selector?) { return lib.mapManyNative(this, selector); };
+    }
+    if (!Array.prototype.qSelect) {
+        Array.prototype.qSelect = Array.prototype.map;
+    }
+}
+
 if (!Array.prototype.qContains) {
     Array.prototype.qContains = function<T, TR>(r: TR[], predicate?: LeftRightPredicate<T, TR>) {
         return lib.contains(this, r, predicate);

@@ -1,3 +1,4 @@
+const { mapManyNative } = require('../es6');
 require('../es6/prototype');
 const { Suite } = require('benchmark');
 const data = require('./data.json');
@@ -7,5 +8,8 @@ module.exports = () =>
   new Suite()
     .add('concat()', () => Array.prototype.concat.apply([], links))
     .add('concat(map)', () => Array.prototype.concat.apply([], data.map(x => x._links)))
+    .add('concat(map)', () => Array.prototype.concat.apply([], data.map(x => x._links)))
+    .add('mapManyNative()', () => mapManyNative(links))
+    .add('mapManyNative(_links)', () => mapManyNative(data, x => x._links))
     .add('qMapMany()', () => links.qMapMany())
     .add('qMapMany(_links)', () => data.qMapMany(x => x._links));
