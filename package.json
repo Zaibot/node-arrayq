@@ -1,6 +1,6 @@
 {
   "name": "arrayq",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Array query methods for Node.js",
   "main": "es6/prototype.js",
   "typings": "es6/prototype.d.ts",
