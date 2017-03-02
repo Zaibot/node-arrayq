@@ -13,3 +13,4 @@ export { default as any } from './any';
 export { default as all } from './all';
 export { default as none } from './none';
 export { default as where } from './where';
+export { default as count } from './count';

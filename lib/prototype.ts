@@ -7,6 +7,7 @@ declare global {
     qAny(predicate?: ItemPredicate<T>): boolean;
     qAll(predicate: ItemPredicate<T>): boolean;
     qNone(predicate?: ItemPredicate<T>): boolean;
+    qCount(predicate?: ItemPredicate<T>): number;
     qContains<TR>(right: TR[], comparer?: LeftRightPredicate<T, TR>): boolean;
     qIntersect<TR>(right: TR[], comparer?: LeftRightPredicate<T, TR>): T[];
     qSame<TR>(right: TR[], comparer?: LeftRightPredicate<T, TR>): boolean;
@@ -95,6 +96,11 @@ if (!Array.prototype.qAll) {
 if (!Array.prototype.qNone) {
     Array.prototype.qNone = function<T>(predicate?: ItemPredicate<T>) {
         return lib.none(this, predicate);
+    };
+}
+if (!Array.prototype.qCount) {
+    Array.prototype.qCount = function<T>(predicate?: ItemPredicate<T>) {
+        return lib.count(this, predicate);
     };
 }
 if (!Array.prototype.qWhere) {

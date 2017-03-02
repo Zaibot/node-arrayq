@@ -204,6 +204,21 @@ describe('qNone', function() {
   });
 });
 
+describe('qCount', function() {
+  it('should return 4', function() {
+    assert.equal([1, 1, 1, 1].qCount(x => x === 1), 4);
+  });
+  it('should return 3', function() {
+    assert.equal([1, 1, 1, 2].qCount(x => x === 1), 3);
+  });
+  it('should return 1', function() {
+    assert.equal([1, 1, 1, 2].qCount(x => x === 2), 1);
+  });
+  it('should return 0', function() {
+    assert.equal([1, 1, 1, 2].qCount(x => x === 3), 0);
+  });
+});
+
 describe('qWhere', function() {
   it('should have even numbers', function() {
     assert.deepEqual([1,2,3,4,5,6,7,8,9,10].qWhere(x => x%2 === 0), [2,4,6,8,10]);
