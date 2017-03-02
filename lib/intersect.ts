@@ -5,7 +5,7 @@ export default function intersect<TL, TR>(l: TL[], r: TR[], comparer?: LeftRight
   l = l.slice(0);
   r = r.slice(0);
   const len = Math.min(l.length, r.length);
-  const res = new Array(len);
+  const res = new Array<TL>(len);
   var pos = 0;
   var x = 0;
 

@@ -3,7 +3,7 @@ import { ProjectMany } from './types';
 export default function mapMany<TL, TR>(items: TL[], selector?: ProjectMany<TL, TR>): TR[] {
     if (selector) {
         const ii = items.length;
-        var res = Array();
+        var res = Array<TR>(ii);
         var count = 0;
         for (let i = 0; i < ii; i++) {
             const deep = selector(items[i], i, items);
@@ -13,10 +13,11 @@ export default function mapMany<TL, TR>(items: TL[], selector?: ProjectMany<TL, 
                 res[count++] = deep[j];
             }
         }
+        res.length = count;
         return res;
     } else {
         const ii = items.length;
-        var res = Array();
+        var res = Array<TR>(ii);
         var count = 0;
         for (let i = 0; i < ii; i++) {
             const deep = items[i] as any as TR[];
@@ -24,6 +25,7 @@ export default function mapMany<TL, TR>(items: TL[], selector?: ProjectMany<TL, 
                 res[count++] = deep[j];
             }
         }
+        res.length = count;
         return res;
     }
 }
