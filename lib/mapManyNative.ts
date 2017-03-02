@@ -1,9 +1,9 @@
-import select from './select';
+import { Projector } from './types';
 
-export default function mapMany<TL, TR>(l: TL[], selector?: (l: TL) => TR[]): TR[] {
+export default function mapMany<TL, TR>(items: TL[], selector?: Projector<TL, TR[]>): TR[] {
     if (selector) {
-        return Array.prototype.concat.apply([], l.map(selector));
+        return Array.prototype.concat.apply([], items.map(selector));
     } else {
-        return Array.prototype.concat.apply([], l);
+        return Array.prototype.concat.apply([], items);
     }
 }

@@ -1,3 +1,3 @@
-export default function empty<TL>(l: TL[]): boolean {
-  return l.length === 0;
+export default function empty<T>(items: T[]): boolean {
+  return items.length === 0;
 }

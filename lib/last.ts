@@ -1,12 +1,14 @@
-export default function last<TL>(l: TL[], predicate?: (l: TL) => boolean): TL {
-  var i = l.length;
+import { ItemPredicate } from './types';
+
+export default function last<T>(items: T[], predicate?: ItemPredicate<T>): T {
+  var i = items.length;
   if (predicate) {
     while (i--) {
-      if (predicate(l[i])) {
-        return l[i];
+      if (predicate(items[i], i, items)) {
+        return items[i];
       }
     }
   } else {
-    return l[--i];
+    return items[--i];
   }
 }
