@@ -21,5 +21,6 @@ export default function distinct<TL, TKey>(items: TL[], selector?: Projector<TL,
       }
     }
   }
+  res.length = pos;
   return res;
 }
