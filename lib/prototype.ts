@@ -6,6 +6,7 @@ declare global {
   interface Array<T> {
     qAny(predicate?: ItemPredicate<T>): boolean;
     qAll(predicate: ItemPredicate<T>): boolean;
+    qIncludes(value: T): boolean;
     qNone(predicate?: ItemPredicate<T>): boolean;
     qCount(predicate?: ItemPredicate<T>): number;
     qContains<TR>(right: TR[], comparer?: LeftRightPredicate<T, TR>): boolean;
@@ -91,6 +92,11 @@ if (!Array.prototype.qAny) {
 if (!Array.prototype.qAll) {
     Array.prototype.qAll = function<T>(predicate: ItemPredicate<T>) {
         return lib.all(this, predicate);
+    };
+}
+if (!Array.prototype.qIncludes) {
+    Array.prototype.qIncludes = function<T>(value: T) {
+        return lib.includes(this, value);
     };
 }
 if (!Array.prototype.qNone) {

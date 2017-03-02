@@ -189,6 +189,15 @@ describe('qAny', function() {
   });
 });
 
+describe('qIncludes', function() {
+  it('should return true', function() {
+    assert([1, 2, 3, 4].qIncludes(1));
+  });
+  it('should return false', function() {
+    assert(![1, 2, 3, 4].qIncludes(0));
+  });
+});
+
 describe('qNone', function() {
   it('should return false when not empty', function() {
     assert(![1].qNone());
