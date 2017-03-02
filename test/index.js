@@ -189,6 +189,21 @@ describe('qAny', function() {
   });
 });
 
+describe('qNone', function() {
+  it('should return false when not empty', function() {
+    assert(![1].qNone());
+  });
+  it('should return true when empty', function() {
+    assert([].qNone());
+  });
+  it('should return false', function() {
+    assert(![1].qNone(x => x === 1));
+  });
+  it('should return true', function() {
+    assert([2].qNone(x => x === 1));
+  });
+});
+
 describe('qWhere', function() {
   it('should have even numbers', function() {
     assert.deepEqual([1,2,3,4,5,6,7,8,9,10].qWhere(x => x%2 === 0), [2,4,6,8,10]);

@@ -6,6 +6,7 @@ declare global {
   interface Array<T> {
     qAny(predicate?: ItemPredicate<T>): boolean;
     qAll(predicate: ItemPredicate<T>): boolean;
+    qNone(predicate?: ItemPredicate<T>): boolean;
     qContains<TR>(right: TR[], comparer?: LeftRightPredicate<T, TR>): boolean;
     qIntersect<TR>(right: TR[], comparer?: LeftRightPredicate<T, TR>): T[];
     qSame<TR>(right: TR[], comparer?: LeftRightPredicate<T, TR>): boolean;
@@ -89,6 +90,11 @@ if (!Array.prototype.qAny) {
 if (!Array.prototype.qAll) {
     Array.prototype.qAll = function<T>(predicate: ItemPredicate<T>) {
         return lib.all(this, predicate);
+    };
+}
+if (!Array.prototype.qNone) {
+    Array.prototype.qNone = function<T>(predicate?: ItemPredicate<T>) {
+        return lib.none(this, predicate);
     };
 }
 if (!Array.prototype.qWhere) {
